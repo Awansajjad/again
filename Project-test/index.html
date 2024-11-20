@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title> Hello </title>
-  </head>
-  <body>
-    <<h1>Hi Everyone !!</h1>
-  </body>
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Lunch Checker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <style>
+    .message { font-size: 1.3em; font-weight: bold; }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-app="ShoppingListCheckOff">
+  <div class="container">
+    <h1>Shopping List Check-Off</h1>
+
+    <!-- To Buy Section -->
+    <div ng-controller="ToBuyController as toBuy">
+      <h2>To Buy:</h2>
+      <p ng-if="toBuy.items.length === 0" class="message">Everything is bought!</p>
+      <ul>
+        <li ng-repeat="item in toBuy.items">
+          Buy {{ item.quantity }} {{ item.name }}
+          <button class="btn btn-success btn-sm" ng-click="toBuy.buyItem($index)">Bought</button>
+        </li>
+      </ul>
+    </div>
+
+    <hr>
+
+    <!-- Already Bought Section -->
+    <div ng-controller="AlreadyBoughtController as bought">
+      <h2>Already Bought:</h2>
+      <p ng-if="bought.items.length === 0" class="message">Nothing bought yet.</p>
+      <ul>
+        <li ng-repeat="item in bought.items">
+          Bought {{ item.quantity }} {{ item.name }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
 </html>
