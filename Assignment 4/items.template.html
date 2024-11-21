@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Items</h1>
+    <div class="list-group">
+        <div class="list-group-item" ng-repeat="item in $ctrl.items">
+            <h4>{{item.name}} ({{item.short_name}})</h4>
+            <p>{{item.description}}</p>
+        </div>
+    </div>
+</div>
