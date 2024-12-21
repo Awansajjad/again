@@ -1,0 +1,23 @@
+<div>
+  <h2>Sign Up</h2>
+  <form name="signupForm" ng-submit="signupCtrl.submit()" novalidate>
+    <label>First Name:</label>
+    <input type="text" ng-model="signupCtrl.user.firstName" required />
+    <br />
+    <label>Last Name:</label>
+    <input type="text" ng-model="signupCtrl.user.lastName" required />
+    <br />
+    <label>Email:</label>
+    <input type="email" ng-model="signupCtrl.user.email" required />
+    <br />
+    <label>Phone:</label>
+    <input type="text" ng-model="signupCtrl.user.phone" required />
+    <br />
+    <label>Favorite Dish (Menu Number):</label>
+    <input type="text" ng-model="signupCtrl.user.menuNumber" required />
+    <br />
+    <button type="submit">Submit</button>
+    <p ng-if="signupCtrl.message">{{ signupCtrl.message }}</p>
+    <p ng-if="signupCtrl.invalidDish">No such menu number exists.</p>
+  </form>
+</div>
